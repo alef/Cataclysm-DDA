@@ -17,6 +17,7 @@ if (SOUND)
 endif ()
 
 set(CATACLYSM_DATA_FILES
+        application_manifest.xml
         changelog.txt
         cataicon.ico
         fontdata.json)
