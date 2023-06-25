@@ -400,21 +400,19 @@ endif()
 
 install(DIRECTORY doc TYPE DOC)
 
-if (RELEASE)
-    install(FILES
-        ${CMAKE_SOURCE_DIR}/README.md
-        ${CMAKE_SOURCE_DIR}/LICENSE.txt
-        ${CMAKE_SOURCE_DIR}/LICENSE-OFL-Terminus-Font.txt
-        ${CMAKE_SOURCE_DIR}/VERSION.txt
-        TYPE DOC)
-    if (TILES)
-        if (USE_PREFIX_DATA_DIR)
-            install(DIRECTORY ${CMAKE_SOURCE_DIR}/gfx
-                TYPE DATA)
-        else()
-            install(DIRECTORY ${CMAKE_SOURCE_DIR}/gfx
-                DESTINATION .)
-        endif()
+install(FILES
+    ${CMAKE_SOURCE_DIR}/README.md
+    ${CMAKE_SOURCE_DIR}/LICENSE.txt
+    ${CMAKE_SOURCE_DIR}/LICENSE-OFL-Terminus-Font.txt
+    ${CMAKE_SOURCE_DIR}/VERSION.txt
+    TYPE DOC)
+if (TILES)
+    if (USE_PREFIX_DATA_DIR)
+        install(DIRECTORY ${CMAKE_SOURCE_DIR}/gfx
+            TYPE DATA)
+    else()
+        install(DIRECTORY ${CMAKE_SOURCE_DIR}/gfx
+            DESTINATION .)
     endif()
 endif()
 

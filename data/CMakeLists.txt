@@ -21,7 +21,5 @@ set(CATACLYSM_DATA_FILES
         cataicon.ico
         fontdata.json)
 
-if (RELEASE)
-    install(DIRECTORY ${CATACLYSM_DATA_DIRS} TYPE DATA)
-    install(FILES ${CATACLYSM_DATA_FILES} TYPE DATA)
-endif ()
+install(DIRECTORY ${CATACLYSM_DATA_DIRS} TYPE DATA)
+install(FILES ${CATACLYSM_DATA_FILES} TYPE DATA)

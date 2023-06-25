@@ -134,9 +134,7 @@ if (TILES)
         target_link_libraries(cataclysm-tiles-common PUBLIC backtrace)
     endif ()
 
-    if (RELEASE)
-        install(TARGETS cataclysm-tiles RUNTIME)
-    endif ()
+    install(TARGETS cataclysm-tiles RUNTIME)
 endif ()
 
 # Build curses version if requested
@@ -201,9 +199,7 @@ if (CURSES)
         target_link_libraries(cataclysm-common PUBLIC backtrace)
     endif ()
 
-    if (RELEASE)
-        install(TARGETS cataclysm RUNTIME)
-    endif ()
+    install(TARGETS cataclysm RUNTIME)
 endif ()
 
 if (MINGW AND NOT RELEASE)

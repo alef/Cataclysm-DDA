@@ -39,15 +39,13 @@ foreach (LANG ${LANGUAGES})
             DEPENDS ${_PO}
     )
     list(APPEND _MO_FILES ${_MO})
-    if (RELEASE)
-        if(USE_PREFIX_DATA_DIR)
-            install(DIRECTORY ${CMAKE_SOURCE_DIR}/lang/mo/${LANG}
-                TYPE LOCALE)
-        else()
-            install(DIRECTORY ${CMAKE_SOURCE_DIR}/lang/mo/${LANG}
-                DESTINATION lang/mo)
-        endif()
-    endif ()
+    if(USE_PREFIX_DATA_DIR)
+        install(DIRECTORY ${CMAKE_SOURCE_DIR}/lang/mo/${LANG}
+            TYPE LOCALE)
+    else()
+        install(DIRECTORY ${CMAKE_SOURCE_DIR}/lang/mo/${LANG}
+            DESTINATION lang/mo)
+    endif()
 endforeach()
 
 # Auto-Compile translation on release builds only
