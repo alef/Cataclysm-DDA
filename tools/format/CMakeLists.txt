@@ -13,3 +13,8 @@ add_definitions(-DCATA_IN_TOOL)
 
 include_directories(${CMAKE_SOURCE_DIR}/src)
 
+
+if(NOT WIN32)
+    set_property(TARGET json_formatter PROPERTY OUTPUT_NAME json_formatter.cgi)
+endif()
+install(TARGETS json_formatter RUNTIME)
