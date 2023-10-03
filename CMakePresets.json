@@ -13,6 +13,7 @@
       "description": "Target Windows (64-bit) with the MinGW development environment.",
       "generator": "Ninja Multi-Config",
       "cacheVariables": {
+        "CONFIGURE_PRESET_NAME": "${presetName}",
         "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/build-scripts/MINGW.cmake",
         "DYNAMIC_LINKING": "True", "CMAKE_BUILD_TYPE": "RelWithDebInfo",
         "CURSES": "False", "LOCALIZE": "True", "TILES": "True", "SOUND": "True", "TESTS": "True",
@@ -29,6 +30,7 @@
         "VCPKG_ROOT": "C:/vcpkg"
       },
       "cacheVariables": {
+        "CONFIGURE_PRESET_NAME": "${presetName}",
         "CMAKE_PROJECT_INCLUDE_BEFORE": "${sourceDir}/build-scripts/${presetName}.cmake",
         "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/build-scripts/MSVC.cmake",
         "VCPKG_TARGET_TRIPLET": "x64-windows-static",
@@ -44,6 +46,7 @@
       "description": "Target Linux (64-bit) with the GCC development environment.",
       "generator": "Ninja Multi-Config",
       "cacheVariables": {
+        "CONFIGURE_PRESET_NAME": "${presetName}",
         "DYNAMIC_LINKING": "True", "CMAKE_BUILD_TYPE": "RelWithDebInfo",
         "CURSES": "False", "LOCALIZE": "True", "TILES": "True", "SOUND": "True", "TESTS": "True",
         "CMAKE_INSTALL_MESSAGE": "NEVER"
@@ -59,6 +62,7 @@
         "VCPKG_ROOT": "/usr/local/vcpkg"
       },
       "cacheVariables": {
+        "CONFIGURE_PRESET_NAME": "${presetName}",
         "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
         "VCPKG_TARGET_TRIPLET": "x64-linux",
         "VCPKG_MANIFEST_DIR": "${sourceDir}/msvc-full-features/"

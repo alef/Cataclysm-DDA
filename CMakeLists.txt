@@ -67,7 +67,7 @@ if (NOT "${GIT_VERSION}" MATCHES "GIT-NOTFOUND")
         OUTPUT_STRIP_TRAILING_WHITESPACE)
     string(TIMESTAMP _timestamp %Y-%m-%d-%H%M)
     file(WRITE VERSION.txt "\
-build type: ${BUILD_PRESET_NAME}\n\
+build type: ${CONFIGURE_PRESET_NAME}\n\
 build number: ${_timestamp}\n\
 commit sha: ${_sha1}\n\
 commit url: https://github.com/CleverRaven/Cataclysm-DDA/commit/${_sha1}"
