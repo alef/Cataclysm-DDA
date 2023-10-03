@@ -61,7 +61,6 @@ if (NOT "${GIT_VERSION}" MATCHES "GIT-NOTFOUND")
     message(STATUS "${PROJECT_NAME} build version is: ${GIT_VERSION}")
     add_definitions(-DGIT_VERSION)
 
-    # get_git_head_revision() does not work with worktrees in Windows
     execute_process(COMMAND ${GIT_EXECUTABLE} rev-parse HEAD
         WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
         OUTPUT_VARIABLE _sha1
