@@ -47,7 +47,7 @@
       "generator": "Ninja Multi-Config",
       "cacheVariables": {
         "CONFIGURE_PRESET_NAME": "${presetName}",
-        "DYNAMIC_LINKING": "True", "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "DYNAMIC_LINKING": "True",
         "CURSES": "False", "LOCALIZE": "True", "TILES": "True", "SOUND": "True", "TESTS": "True",
         "CMAKE_INSTALL_MESSAGE": "NEVER"
       }
