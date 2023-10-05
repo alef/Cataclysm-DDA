@@ -368,6 +368,8 @@ if (NOT GETTEXT_MSGFMT_EXECUTABLE )
 endif()
 
 # Ok. Now create build and install recipes
+include(Packaging) # Before any install() and add_subdirectory()
+
 if (LOCALIZE)
     add_subdirectory(lang)
     add_definitions(-DLOCALIZE)
@@ -435,5 +437,3 @@ configure_file(
 add_custom_target(uninstall
         "${CMAKE_COMMAND}"
         -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
-
-include(Packaging)
