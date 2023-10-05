@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.20)
 
 project(CataclysmDDA)
 
+cmake_policy(SET CMP0126 NEW) # set(CACHE) keep var
+
 list(APPEND CMAKE_MODULE_PATH
         ${CMAKE_SOURCE_DIR}/CMakeModules)
 if (NOT VCPKG_MANIFEST_MODE)
@@ -60,8 +62,11 @@ include(GetGitRevisionDescription)
 git_describe(GIT_VERSION --tags --always --match "[0-9A-Z]*.[0-9A-Z]*")
 if (NOT "${GIT_VERSION}" MATCHES "GIT-NOTFOUND")
     string(REPLACE "-NOTFOUND" "" GIT_VERSION ${GIT_VERSION})
-    file(WRITE ${CMAKE_SOURCE_DIR}/src/version.h
-            "// NOLINT(cata-header-guard)\n\#define VERSION \"${GIT_VERSION}\"\n")
+    if(NOT GIT_VERSION STREQUAL "$CACHE{GIT_VERSION}" OR NOT EXISTS ${CMAKE_SOURCE_DIR}/src/version.h)
+        file(WRITE ${CMAKE_SOURCE_DIR}/src/version.h
+                "// NOLINT(cata-header-guard)\n\#define VERSION \"${GIT_VERSION}\"\n")
+        set(GIT_VERSION ${GIT_VERSION} CACHE INTERNAL "")
+    endif()
     message(STATUS "${PROJECT_NAME} build version is: ${GIT_VERSION}")
     add_definitions(-DGIT_VERSION)
 
